@@ -1,4 +1,4 @@
-html, body, ul, #Space, p {
+html, body, ul, #Space, p, h2, h1 {
     padding: 0;
     margin: 0;
 }
@@ -6,6 +6,13 @@ html, body, ul, #Space, p {
 html, body {
     height: 100%;
     width: 100%;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.info {
+    display: flex;
+    justify-content: start;
+    padding-left: 20px;
 }
 
 body {
@@ -28,23 +35,26 @@ a {
     text-align: center;
 }
 
-header {
+#navbar {
     border: thick double #7320ba;
     border-radius: 5px;
     display: flex;
     justify-content: center;
     align-items: center;
+    background: repeating-linear-gradient(
+        -45deg,
+        #7220ba4f,
+        #7220ba4f 10px,
+        #a1616625 10px,
+        #a1616625 20px)
 }
 
-header ul li {
+nav ul li {
     display: inline;
     padding: 0 10px;
 }
 
 #banner {
-    border: thick double;
-    border-image: linear-gradient(15deg, #7320ba 50%, #a1122c 50%) 5;    
-    border-radius: 5px;
     padding: 5px 5px 0 5px;
     margin-top: 20px;
     overflow: hidden;
@@ -59,32 +69,76 @@ header ul li {
     
 }
 
-
 #intros {
     display: flex;
-    justify-content: space-around;
+    justify-content: left;
     width: 100%;
 }
 
-#intros .intro {
+.intro {
+    display: flex;
+    flex-direction: column;
+    min-height: 300px;
+    margin-top: 20px;
+}
+
+.intro .content {
     display: flex;
     border-radius: 5px;
     padding: 5px 5px 0 5px;
-    margin-top: 20px;
-    min-height: 300px;
     align-items:start;
-    width: 50%;
+    height: 100%;
+    flex-wrap: wrap;
 }
 
-#intros #Shia {
+.superior {
+    display: flex;
+    align-items:start;
+}
+
+.inferior {
+    display: flex;
+    flex-wrap: wrap;
+    align-items:start;
+    justify-content: left;
+    padding: 10px 0 10px 10px;
+}
+
+.inferior img {
+    aspect-ratio: 1/1;
+    object-fit: cover;
+}
+
+.inferior ul {
+    margin-left: 20px;
+    text-align: left;
+    font-size: large;
+    font-weight: bold;
+}
+
+#Shia > * {
     border: thick double #7320ba;
+    color: #ab81cf;
+    background: repeating-linear-gradient(
+        -45deg,
+        #42121698,
+        #42121698 10px,
+        #a1616654 10px,
+        #a1616654 20px)
 }
 
-#intros #Vini {
+#Vini > * {
     border: thick double #a1122c;
+    color: #ff4040;
+    background: repeating-linear-gradient(
+        -45deg,
+        #4b157aa1,
+        #4b157aa1 10px,
+        #653d8883 10px,
+        #653d8883 20px);
 }
 
-#intros .intro .imagem {
+.imagem {
     aspect-ratio: 1 / 1;
     object-fit: cover;
     max-height: 225px;
@@ -92,48 +146,37 @@ header ul li {
     min-height: 100px;
 }
 
-#intros #Shia .imagem {
+#Shia .imagem {
     border: thick solid #7320ba;
 }
 
-#intros #Vini .imagem {
+#Vini .imagem {
     border: thick solid #a1122c;
 }
 
-#intros .intro .imagem img {
+.imagem img {
     object-fit: cover;
     height: 100%;
     width: 100%;
 }
 
-#intros .intro .texto {
-    width: 40%;
+.texto {
     height: fit-content;
     padding: 0 10px;
     text-align: left;
     vertical-align: top;
     padding: 20px;
+    word-break: break-word;
 }
 
 @media (max-width: 1300px) {
-    #intros .intro .texto {
+    .texto {
         width: 100%;
     }
     #banner {
         aspect-ratio: 3 / 1;
     }
 }
-
-@media (max-width: 650px) {
-    #banner img {
-        transform: scale(3);
-    }
-    #intros .intro {
-        flex-wrap: wrap;
-    }
-
-}
-
 @media (min-width: 1300px) {
     #Space {
     margin-left: 20%; 
@@ -142,7 +185,79 @@ header ul li {
     #banner {
         aspect-ratio: 5 / 1;
     }
-    #banner img {
-    }
     
+}
+
+@media (max-width: 650px) {
+    #banner img {
+        transform: scale(3);
+    }
+    .superior {
+        flex-wrap: wrap;
+    }
+    .inferior img{
+        max-width: 100px;
+    }
+    #intros {
+        flex-direction: column;
+    }
+    .intro {
+        width: 100%;
+    }
+    #fotos > * {
+        width: 100%;
+    }
+
+
+}
+@media (min-width: 650px) {
+    .superior {
+        flex-wrap: nowrap;
+    }
+    .inferior img{
+        max-width: 150px;
+    }
+    .intro {
+        width: 37.5%;
+    }
+    #fotos > * {
+        width: 75%;
+    }
+
+}
+
+#fotos > * {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow: scroll;
+    padding: 0 20px;
+    border: thick double #a1122c;
+    color: #ff4040;
+    background: repeating-linear-gradient(
+        -45deg,
+        #4b157aa1,
+        #4b157aa1 10px,
+        #653d8883 10px,
+        #653d8883 20px);
+    box-sizing:border-box;
+}
+
+#fotos .content {
+    padding: 20px;
+}
+
+.container {
+    margin: 0 5px;
+    border: thick solid #7320ba;
+    aspect-ratio: 1/1;
+    overflow: hidden;
+    width: 100%;
+    min-width: 250;
+    flex: 0 0 200px;
+}
+
+.container img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
 }
