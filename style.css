@@ -18,7 +18,7 @@ html, body {
 }
 
 body { /* Background fixo da imagem*/
-      background-image: url(/images/stars.gif);
+      background-image: url(../images/stars.gif);
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
