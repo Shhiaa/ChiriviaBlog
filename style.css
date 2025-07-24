@@ -18,7 +18,7 @@ html, body {
 }
 
 body { /* Background fixo da imagem*/
-      background-image: url(images/stars.jpg);
+      background-image: url(/83ea5842c1f9ff2f3a9761b6c17f3b32.gif);
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
@@ -40,23 +40,12 @@ a { /* Cor dos links*/
 .box > * {
     border: thick double #7320ba;
     color: #ab81cf;
-    background: repeating-linear-gradient(
-        -45deg,
-        #7220ba4f,
-        #7220ba4f 10px,
-        #a1616625 10px,
-        #a1616625 20px);
+    
     border-radius: 5px;
 }
 
 .box:hover > * {
     border: thick double #b51431;
-    background: repeating-linear-gradient(
-        -45deg,
-        #58222762,
-        #58222762 10px,
-        #7220ba25 10px,
-        #7220ba25 20px);
 }
 
 .info { /* Configuração dos "títulos" das sections*/
@@ -162,7 +151,7 @@ nav ul li { /* Navbar horizontal*/
 }
 
 #Shia .imagem {
-    border: thick solid #7320ba;
+    border: thick solid #b51431;
 }
 
 #Vini .imagem {
@@ -189,7 +178,7 @@ nav ul li { /* Navbar horizontal*/
 #fotos > * {
     display: flex;
     flex-wrap: nowrap;
-    overflow: scroll;
+    overflow: auto;
     padding: 0 20px;
     box-sizing:border-box;
 }
