@@ -1,3 +1,11 @@
+/*
+  ____                _ 
+ / ___| ___ _ __ __ _| |
+| |  _ / _ \ '__/ _` | |
+| |_| |  __/ | | (_| | |
+ \____|\___|_|  \__,_|_|
+*/
+
 html, body, ul, #Space, p, h2, h1 {
     padding: 0;
     margin: 0;
@@ -9,13 +17,7 @@ html, body {
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
-.info {
-    display: flex;
-    justify-content: start;
-    padding-left: 20px;
-}
-
-body {
+body { /* Background fixo da imagem*/
       background-image: url(images/stars.jpg);
       background-size: cover;
       background-position: center;
@@ -23,11 +25,11 @@ body {
       background-attachment: fixed;
 }
 
-a {
+a { /* Cor dos links*/
     color: white;
 }
 
-#Space {
+#Space { /* O espaço maior; Onde todas as sections tem que se encaixar, usado para margens gerais do site*/
     color: white;
     margin-top: 1%;
     margin-left: 5%; 
@@ -35,21 +37,49 @@ a {
     text-align: center;
 }
 
-#navbar {
+.box > * {
     border: thick double #7320ba;
-    border-radius: 5px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    color: #ab81cf;
     background: repeating-linear-gradient(
         -45deg,
         #7220ba4f,
         #7220ba4f 10px,
         #a1616625 10px,
-        #a1616625 20px)
+        #a1616625 20px);
+    border-radius: 5px;
 }
 
-nav ul li {
+.box:hover > * {
+    border: thick double #b51431;
+    background: repeating-linear-gradient(
+        -45deg,
+        #58222762,
+        #58222762 10px,
+        #7220ba25 10px,
+        #7220ba25 20px);
+}
+
+.info { /* Configuração dos "títulos" das sections*/
+    display: flex;
+    justify-content: start;
+    padding-left: 20px;
+}
+
+/*
+ _   _                _           
+| | | | ___  __ _  __| | ___ _ __ 
+| |_| |/ _ \/ _` |/ _` |/ _ \ '__|
+|  _  |  __/ (_| | (_| |  __/ |   
+|_| |_|\___|\__,_|\__,_|\___|_|    
+*/
+
+#navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav ul li { /* Navbar horizontal*/
     display: inline;
     padding: 0 10px;
 }
@@ -64,25 +94,33 @@ nav ul li {
 #banner img {
     object-fit: cover;
     margin: 0 auto;
-        height: 100%;
-        width: 100%;
-    
+    height: 100%;
+    width: 100%;
 }
 
-#intros {
+/*
+  ____                       
+ / ___|___  _ __ _ __   ___  
+| |   / _ \| '__| '_ \ / _ \ 
+| |__| (_) | |  | |_) | (_) |
+ \____\___/|_|  | .__/ \___/ 
+                |_|     
+*/
+
+#intros { /* onde nossas introduções ficam*/
     display: flex;
     justify-content: left;
     width: 100%;
 }
 
-.intro {
+.intro { /* Mostrar o card de titulo (info) e depois o content em colunas*/
     display: flex;
     flex-direction: column;
     min-height: 300px;
     margin-top: 20px;
 }
 
-.intro .content {
+.intro .content { /*Configurações de cada card de informação*/
     display: flex;
     border-radius: 5px;
     padding: 5px 5px 0 5px;
@@ -91,12 +129,12 @@ nav ul li {
     flex-wrap: wrap;
 }
 
-.superior {
+.superior { /*Nossa foto + nome e quote*/
     display: flex;
     align-items:start;
 }
 
-.inferior {
+.inferior { /*gif + pontos em bullet*/
     display: flex;
     flex-wrap: wrap;
     align-items:start;
@@ -116,33 +154,10 @@ nav ul li {
     font-weight: bold;
 }
 
-#Shia > * {
-    border: thick double #7320ba;
-    color: #ab81cf;
-    background: repeating-linear-gradient(
-        -45deg,
-        #42121698,
-        #42121698 10px,
-        #a1616654 10px,
-        #a1616654 20px)
-}
-
-#Vini > * {
-    border: thick double #a1122c;
-    color: #ff4040;
-    background: repeating-linear-gradient(
-        -45deg,
-        #4b157aa1,
-        #4b157aa1 10px,
-        #653d8883 10px,
-        #653d8883 20px);
-}
-
-.imagem {
+.imagem { /*nossas fotos de "perfil"*/
     aspect-ratio: 1 / 1;
-    object-fit: cover;
-    max-height: 225px;
     overflow: hidden;
+    max-height: 225px;
     min-height: 100px;
 }
 
@@ -160,7 +175,7 @@ nav ul li {
     width: 100%;
 }
 
-.texto {
+.texto { /* nossos nomes + quotes*/
     height: fit-content;
     padding: 0 10px;
     text-align: left;
@@ -169,7 +184,49 @@ nav ul li {
     word-break: break-word;
 }
 
-@media (max-width: 1300px) {
+
+
+#fotos > * {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow: scroll;
+    padding: 0 20px;
+    box-sizing:border-box;
+}
+
+#fotos .content {
+    padding: 20px;
+}
+
+.container {
+    border: thick solid #7320ba;
+    aspect-ratio: 1/1;
+    overflow: hidden;
+    margin: 0 5px;
+    width: 100%;
+    min-width: 250px;
+    flex: 0 0 200px;
+}
+
+.container:nth-child(2n) {
+    border: thick solid #b51431;
+}
+
+.container img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+/*
+ __  __       _     _ _      
+|  \/  | ___ | |__ (_) | ___ 
+| |\/| |/ _ \| '_ \| | |/ _ \
+| |  | | (_) | |_) | | |  __/
+|_|  |_|\___/|_.__/|_|_|\___|
+*/
+
+@media (max-width: 1300px) { /*Estilo pra tablet*/
     .texto {
         width: 100%;
     }
@@ -177,7 +234,7 @@ nav ul li {
         aspect-ratio: 3 / 1;
     }
 }
-@media (min-width: 1300px) {
+@media (min-width: 1300px) { /*Estilo pra pc*/
     #Space {
     margin-left: 20%; 
     margin-right: 20%;
@@ -188,7 +245,7 @@ nav ul li {
     
 }
 
-@media (max-width: 650px) {
+@media (max-width: 650px) { /*Estilo pra celular*/
     #banner img {
         transform: scale(3);
     }
@@ -210,7 +267,7 @@ nav ul li {
 
 
 }
-@media (min-width: 650px) {
+@media (min-width: 650px) { /* Estilo pra não celular*/
     .superior {
         flex-wrap: nowrap;
     }
@@ -224,40 +281,4 @@ nav ul li {
         width: 100%;
     }
 
-}
-
-#fotos > * {
-    display: flex;
-    flex-wrap: nowrap;
-    overflow: scroll;
-    padding: 0 20px;
-    border: thick double #a1122c;
-    color: #ff4040;
-    background: repeating-linear-gradient(
-        -45deg,
-        #4b157aa1,
-        #4b157aa1 10px,
-        #653d8883 10px,
-        #653d8883 20px);
-    box-sizing:border-box;
-}
-
-#fotos .content {
-    padding: 20px;
-}
-
-.container {
-    margin: 0 5px;
-    border: thick solid #7320ba;
-    aspect-ratio: 1/1;
-    overflow: hidden;
-    width: 100%;
-    min-width: 250;
-    flex: 0 0 200px;
-}
-
-.container img {
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
 }
