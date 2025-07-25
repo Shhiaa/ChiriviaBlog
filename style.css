@@ -223,6 +223,13 @@ nav ul li { /* Navbar horizontal*/
     border: thick solid #b51431;
 }
 
+.containerMI {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+
 /*
  __  __       _     _ _      
 |  \/  | ___ | |__ (_) | ___ 
