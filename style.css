@@ -37,6 +37,10 @@ a { /* Cor dos links*/
     text-align: center;
 }
 
+.box {
+    max-width: 100%;
+}
+
 .box > * {
     border: thick double #7320ba;
     color: #ab81cf;
@@ -48,9 +52,18 @@ a { /* Cor dos links*/
     color: #ff4040;
 }
 
-.container {
+.box > *:has(img) {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow: auto;
+    padding: 0 20px;
+    box-sizing:border-box;
+}
+
+.container:has(img) {
     aspect-ratio: 1/1;
     overflow: hidden;
+    max-width: 250px;
     animation-name: mexe;
     animation-duration: 1s;
     animation-timing-function: steps(2, end);
@@ -69,8 +82,27 @@ a { /* Cor dos links*/
 
 .info { /* Configuração dos "títulos" das sections*/
     display: flex;
-    justify-content: start;
+    justify-content: center;
     padding-left: 20px;
+    max-width: 100%;
+}
+
+.row {
+    display: flex;
+    justify-content: left;
+    width: 100%;
+}
+
+.row .container:has(img) {
+    border: thick solid #7320ba;
+    margin: 0 5px;
+    height: 100%;
+    min-width: 250px;
+}
+    
+@keyframes mexe {
+  0% { transform: rotate(5deg); }
+  100% { transform: rotate(-10deg); }
 }
 
 /*
@@ -115,11 +147,6 @@ nav ul li { /* Navbar horizontal*/
                 |_|     
 */
 
-#intros { /* onde nossas introduções ficam*/
-    display: flex;
-    justify-content: left;
-    width: 100%;
-}
 
 .intro { /* Mostrar o card de titulo (info) e depois o content em colunas*/
     display: flex;
@@ -168,11 +195,6 @@ nav ul li { /* Navbar horizontal*/
     max-height: 225px;
     min-height: 100px;
 }
-    
-@keyframes mexe {
-  0% { transform: rotate(5deg); }
-  100% { transform: rotate(-10deg); }
-}
 
 #Shia .container {
     border: thick solid #b51431;
@@ -197,36 +219,34 @@ nav ul li { /* Navbar horizontal*/
     word-break: break-word;
 }
 
-
-
-#fotos > * {
-    display: flex;
-    flex-wrap: nowrap;
-    overflow: auto;
-    padding: 0 20px;
-    box-sizing:border-box;
-}
-
 #fotos .content {
     padding: 20px;
 }
 
-#fotos .container {
-    border: thick solid #7320ba;
-    margin: 0 5px;
-    width: 100%;
-    min-width: 250px;
-    flex: 0 0 200px;
-}
-
-#fotos .container:nth-child(2n) {
+.box .container:nth-child(2n) {
     border: thick solid #b51431;
 }
 
-.containerMI {
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
+#musica .container {
+    height: 352px;
+}
+
+iframe {
+    width: 100%;
+    height: 100%;
+}
+
+#desenhos .content, #interesses .content {
+    padding: 0;
+    aspect-ratio: 1/1;
+    overflow: hidden;
+    max-width: 100%;
+}
+
+#desenhos img, #interesses img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
 }
 
 
@@ -238,7 +258,7 @@ nav ul li { /* Navbar horizontal*/
 |_|  |_|\___/|_.__/|_|_|\___|
 */
 
-@media (max-width: 1300px) { /*Estilo pra tablet*/
+@media (max-width: 1519px) { /*Estilo pra tablet*/
     .texto {
         width: 100%;
     }
@@ -246,18 +266,17 @@ nav ul li { /* Navbar horizontal*/
         aspect-ratio: 3 / 1;
     }
 }
-@media (min-width: 1300px) { /*Estilo pra pc*/
+@media (min-width: 1519px) { /*Estilo pra pc*/
     #Space {
-    margin-left: 20%; 
-    margin-right: 20%;
+        margin-left: 20%; 
+        margin-right: 20%;
     }
     #banner {
         aspect-ratio: 5 / 1;
     }
     
 }
-
-@media (max-width: 650px) { /*Estilo pra celular*/
+@media (max-width: 1000px) { /*Estilo pra celular*/
     #banner img {
         transform: scale(3);
     }
@@ -267,19 +286,23 @@ nav ul li { /* Navbar horizontal*/
     .inferior img{
         max-width: 100px;
     }
-    #intros {
+    .intros {
         flex-direction: column;
+    }
+    .row {
+        flex-wrap: wrap;
     }
     .intro {
         width: 100%;
     }
-    #fotos > * {
+    #musica {
         width: 100%;
     }
-
-
+    #desenhos, #interesses {
+        width: 50%;
+    }
 }
-@media (min-width: 650px) { /* Estilo pra não celular*/
+@media (min-width: 1000px) { /* Estilo pra não celular*/
     .superior {
         flex-wrap: nowrap;
     }
@@ -289,8 +312,13 @@ nav ul li { /* Navbar horizontal*/
     .intro {
         width: 50%;
     }
-    #fotos > * {
-        width: 100%;
+    #desenhos, #interesses {
+        width: 25%;
     }
-
+    #musica {
+        width: 50%;
+    }
+    #desenhos .content, #interesses .content {
+        min-height: 360px;
+    }
 }
